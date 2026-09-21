@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emeka Chukwuka — Full-Stack Developer</title>
-<meta name="google-site-verification" content="nVCWV3bj0wL8INF2Ammp42uubSzYUvw5gwy9va1Vk9g" />
     <meta name="description" content="Emeka Chukwuka — Full-stack developer and builder.">
     <style>
       /* ========================= RESET ========================= */
@@ -136,6 +135,18 @@
       }
 
       .hero-content {
+        max-width: 100%;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 60px;
+        align-items: center;
+      }
+
+      .hero-text {
+        min-width: 0;
         max-width: 800px;
       }
 
@@ -206,6 +217,62 @@
       .hero-links a .icon {
         width: 14px;
         height: 14px;
+      }
+
+      /* ========================= PROFILE IMAGE ========================= */
+      .hero-image {
+        flex-shrink: 0;
+      }
+
+      .image-frame {
+        position: relative;
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 1px solid #292929;
+        background: #0a0a0a;
+        transition: transform 0.4s ease, border-color 0.4s ease;
+      }
+
+      .image-frame::before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        border-radius: 50%;
+        background: conic-gradient(
+          from 0deg,
+          transparent 0deg,
+          transparent 300deg,
+          #444 340deg,
+          #888 360deg
+        );
+        z-index: -1;
+        animation: rotate 6s linear infinite;
+      }
+
+      @keyframes rotate {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .image-frame:hover {
+        transform: scale(1.03);
+        border-color: #444;
+      }
+
+      .image-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: grayscale(100%) contrast(1.05);
+        transition: filter 0.4s ease;
+      }
+
+      .image-frame:hover img {
+        filter: grayscale(0%) contrast(1);
       }
 
       /* ========================= SECTIONS ========================= */
@@ -519,6 +586,22 @@
           letter-spacing: -3px;
         }
 
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .hero-image {
+          order: -1;
+          display: flex;
+          justify-content: center;
+        }
+
+        .image-frame {
+          width: 200px;
+          height: 200px;
+        }
+
         section {
           padding: 70px 0;
         }
@@ -599,56 +682,67 @@
       <section class="hero">
         <div class="container">
           <div class="hero-content reveal">
-            <p class="hero-small">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="16 18 22 12 16 6" />
-                <polyline points="8 6 2 12 8 18" />
-              </svg>
-              Full-Stack Developer &amp; Builder
-            </p>
-            <h1>Emeka<br>Chukwuka</h1>
-            <p class="hero-role">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <line x1="2" y1="12" x2="22" y2="12" />
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-              </svg>
-              I build things for the web.
-            </p>
-            <p class="hero-description">
-              Full-stack developer focused on building useful products, developer
-              tools and backend systems. I enjoy taking ideas from concept to
-              working software.
-            </p>
-            <div class="hero-links">
-              <a href="#projects">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="12" y1="5" x2="12" y2="19" />
-                  <polyline points="19 12 12 19 5 12" />
-                </svg>
-                View projects
-              </a>
-              <a href="https://github.com/EmekaChukwuka" target="_blank" rel="noopener noreferrer">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                </svg>
-                GitHub
-              </a>
-              <a href="https://www.linkedin.com/in/emeka-chukwuka-36660036a" target="_blank" rel="noopener noreferrer">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                  <rect x="2" y="9" width="4" height="12" />
-                  <circle cx="4" cy="4" r="2" />
-                </svg>
-                LinkedIn
-              </a>
-              <a href="https://x.com/emekatherealist" target="_blank" rel="noopener noreferrer">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
-                  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
-                </svg>
-                X
-              </a>
+            <div class="hero-grid">
+              <div class="hero-text">
+                <p class="hero-small">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6" />
+                    <polyline points="8 6 2 12 8 18" />
+                  </svg>
+                  Full-Stack Developer &amp; Builder
+                </p>
+                <h1>Emeka<br>Chukwuka</h1>
+                <p class="hero-role">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                  I build things for the web.
+                </p>
+                <p class="hero-description">
+                  Full-stack developer focused on building useful products, developer
+                  tools and backend systems. I enjoy taking ideas from concept to
+                  working software.
+                </p>
+                <div class="hero-links">
+                  <a href="#projects">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19" />
+                      <polyline points="19 12 12 19 5 12" />
+                    </svg>
+                    View projects
+                  </a>
+                  <a href="https://github.com/EmekaChukwuka" target="_blank" rel="noopener noreferrer">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                    </svg>
+                    GitHub
+                  </a>
+                  <a href="https://www.linkedin.com/in/emeka-chukwuka-36660036a" target="_blank" rel="noopener noreferrer">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                      <rect x="2" y="9" width="4" height="12" />
+                      <circle cx="4" cy="4" r="2" />
+                    </svg>
+                    LinkedIn
+                  </a>
+                  <a href="https://x.com/@emekatherealist" target="_blank" rel="noopener noreferrer">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+                      <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+                    </svg>
+                    X
+                  </a>
+                </div>
+              </div>
+
+              <!-- ========================= PROFILE IMAGE ========================== -->
+              <div class="hero-image">
+                <div class="image-frame">
+                  <img src="emeka.jpg" alt="Emeka Chukwuka" loading="eager" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1026,7 +1120,7 @@
                   </svg>
                   Experience
                 </span>
-                <span>2+ years</span>
+                <span>3+ years</span>
               </div>
               <div class="detail">
                 <span>
